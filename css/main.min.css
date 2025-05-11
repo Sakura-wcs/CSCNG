@@ -1,0 +1,179 @@
+/* ================= 基础变量与全局样式 ================= */
+:root {
+	jumbotron-padding-y: 3rem;
+  success-gradient: linear-gradient(45deg, #10B981, #34D399);
+  text-primary: rgba(255,255,255,0.9);
+  accent-orange: #F6AD55;
+}
+
+/* ================= 页面背景与毛玻璃效果 ================= */
+body {
+  color: var(--text-primary);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('../img/banner2.jpg') center/cover fixed;
+  filter: blur(15px) brightness(0.7);
+  z-index: -1;
+}
+
+/* ================= 核心容器样式 ================= */
+.jumbotron {
+  padding: var(--jumbotron-padding-y) 0;
+  margin: 2rem auto;
+  background: rgba(40, 40, 40, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  overflow: hidden;
+  max-width: 90%;
+}
+
+.jumbotron-heading {
+  font-size: 2.2rem;
+  background: linear-gradient(45deg, #6CB2EB, #38A169);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* ================= 响应式调整 ================= */
+@media (min-width: 768px) {
+  .jumbotron {
+    padding: calc(var(--jumbotron-padding-y) * 2) 0;
+    max-width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  body::before {
+    filter: blur(10px) brightness(0.6);
+  }
+  
+  .jumbotron {
+    margin: 1rem auto;
+    border-radius: 12px;
+  }
+  
+  .jumbotron-heading {
+    font-size: 1.8rem;
+  }
+}
+
+/* ================= 文字与卡片组件 ================= */
+
+.card-text {
+  color: white !important; 
+}
+
+.lead.text-muted {
+  color: rgba(220,220,220,0.9) !important;
+  line-height: 1.8;
+  padding: 0.8rem 1.2rem;
+  background: rgba(30,30,30,0.4);
+  border-radius: 8px;
+  margin: 1rem auto;
+  max-width: 800px;
+}
+
+.lead.text-muted b {
+  color: var(--accent-orange) !important;
+  font-weight: 500;
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background: rgba(246,173,85,0.1);
+  border-radius: 4px;
+}
+
+.card {
+  background: rgba(50, 50, 50, 0.6) !important;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: all 0.3s ease;
+}
+
+/* ================= 按钮系统 ================= */
+.btn-primary, 
+.btn-success {
+  min-width: 240px;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+  backdrop-filter: blur(4px);
+}
+
+.btn-primary {
+  background: var(--primary-gradient);
+  box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+}
+
+.btn-success {
+  background: var(--success-gradient);
+  box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+}
+
+.btn-primary:hover,
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+/* ================= 移动端优化 ================= */
+@media (max-width: 576px) {
+  .btn-primary,
+  .btn-success {
+    width: 100%;
+    min-width: auto;
+    margin: 0.5rem 0;
+  }
+}
+
+/* ================= 辅助样式 ================= */
+.box-shadow { 
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05); 
+}
+
+.highlight-text {
+  font-size: 1.2em;
+  font-weight: bold;
+  animation: rgb-flash 1s infinite;
+}
+
+@keyframes rgb-flash {
+  0%   { color: #FF0000; }
+  33%  { color: #00FF00; }
+  66%  { color: #0000FF; }
+  100% { color: #FF0000; }
+}
+
+.highlight-text2 {
+  font-size: 1.7em;
+  font-weight: bold;
+  animation: rgb-flash 1s infinite;
+}
+
+/* ================= 浏览器兼容处理 ================= */
+@supports not (backdrop-filter: blur(10px)) {
+  body::before {
+    background: rgba(30, 30, 30, 0.95);
+    filter: blur(0);
+  }
+  
+  .container {
+    background: rgba(35, 35, 35, 0.98) !important;
+  }
+}

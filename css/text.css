@@ -1,0 +1,184 @@
+/* CSS Document */
+.highlight-text {
+  font-size: 1.5em;
+  font-weight: bold;
+  animation: rgb-flash 1s infinite;
+}
+
+/* 定义 RGB 闪烁动画 */
+@keyframes rgb-flash {
+  0%   { color: red; }
+  33%  { color: green; }
+  66%  { color: blue; }
+  100% { color: red; }
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('../img/banner2.jpg') center/cover fixed;
+  filter: blur(15px) brightness(0.7);
+  z-index: -1;
+}
+
+/* 内容容器增强 */
+.container {
+  background: rgba(40, 40, 40, 0.85) !important;
+  backdrop-filter: blur(8px);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  padding: 2rem;
+  margin: 2rem auto;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* 卡片层级优化 */
+.card {
+  background: rgba(50, 50, 50, 0.6) !important;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255,255,255,0.15);
+  transition: all 0.3s ease;
+}
+
+/* 文字可读性增强 */
+body {
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  body::before {
+    filter: blur(10px) brightness(0.6);
+  }
+  
+  .container {
+    margin: 1rem;
+    padding: 1.5rem;
+    border-radius: 12px;
+    backdrop-filter: blur(6px);
+  }
+}
+
+/* 滚动优化 */
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,255,255,0.2) transparent;
+}
+
+/* 浏览器兼容性处理 */
+@supports not (backdrop-filter: blur(10px)) {
+  body::before {
+    background: rgba(30, 30, 30, 0.95);
+    filter: blur(0);
+  }
+  
+  .container {
+    background: rgba(35, 35, 35, 0.98) !important;
+  }
+}
+	  .highlight-text {
+  	font-size: 1.5em;
+ 	font-weight: bold;
+}
+
+.jumbotron {
+  background: rgba(40, 40, 40, 0.9) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 16px;
+  margin: 2rem auto;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+  overflow: hidden;
+}
+
+/* 标题统一 */
+.jumbotron-heading {
+  font-size: 2.2rem;
+  background: linear-gradient(45deg, #6CB2EB, #38A169);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* 段落文字优化 */
+.lead.text-muted {
+  color: rgba(220,220,220,0.9) !important;
+  line-height: 1.8;
+  padding: 0.8rem 1.2rem;
+  background: rgba(30,30,30,0.4);
+  border-radius: 8px;
+  margin: 1rem auto;
+  max-width: 800px;
+}
+
+/* 强调文字样式 */
+.lead.text-muted b {
+  color: #F6AD55 !important;
+  font-weight: 500;
+  display: inline-block;
+  padding: 0.2rem 0.5rem;
+  background: rgba(246,173,85,0.1);
+  border-radius: 4px;
+}
+
+/* 按钮统一 */
+.btn-primary, .btn-success {
+  min-width: 240px;
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin: 0.5rem;
+  backdrop-filter: blur(4px);
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #4F46E5, #6366F1);
+  box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+}
+
+.btn-success {
+  background: linear-gradient(45deg, #10B981, #34D399);
+  box-shadow: 0 4px 12px rgba(16,185,129,0.3);
+}
+
+/* 悬停效果 */
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(79,70,229,0.4);
+}
+
+.btn-success:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(16,185,129,0.4);
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+  .jumbotron {
+    margin: 1rem;
+    border-radius: 12px;
+  }
+  
+  .jumbotron-heading {
+    font-size: 1.8rem;
+  }
+  
+  .lead.text-muted {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+  
+  .btn-primary, .btn-success {
+    min-width: auto;
+    width: 100%;
+    margin: 0.5rem 0;
+  }
